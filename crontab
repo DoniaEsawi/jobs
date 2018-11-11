@@ -1,0 +1,1 @@
+* * * * * root node /jobs/src/helloworld.js >> /var/log/cron.log 2>&1
