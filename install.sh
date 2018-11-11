@@ -26,7 +26,7 @@ echo docker -v
 
 # Get docker-compose
 echo "Checking for docker-compose"
-if ! [ -x "$(command -v docker-compose)"]; then
+if ! [ -x "$(command -v docker-compose)" ]; then
     echo "Fetching docker-compose"
     sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
