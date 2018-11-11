@@ -1,3 +1,5 @@
+#! /bin/bash
+
 sudo apt-get update
 sudo apt-get install \
     apt-transport-https \
@@ -5,20 +7,31 @@ sudo apt-get install \
     curl \
     software-properties-common
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# Get Docker
+echo "Checking for Docker"
+if ! [ -x "$(command -v docker)" ]; then
+    echo "Fetching docker"
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+    sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
 
-sudo apt-get update
-sudo apt-get install docker-ce
+    sudo apt-get update
+    sudo apt-get install docker-ce
+fi
+echo "We have docker"
+echo docker -v
 
-# sudo docker run hello-world
+# Get docker-compose
+echo "Checking for docker-compose"
+if ! [ -x "$(command -v docker-compose)"]; then
+    echo "Fetching docker-compose"
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+fi
+echo "We have docker-compose"
+echo docker-compose -v
 
-### Docker compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
-# docker-compose up
+docker-compose up -d
