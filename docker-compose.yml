@@ -3,5 +3,5 @@ services:
   empyre-jobs:
     build: .
     env_file: .env
-    volumes:
-      - .:/jobs
+    # volumes:
+    #   - .:/jobs
