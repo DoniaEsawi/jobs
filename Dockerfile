@@ -17,6 +17,8 @@ RUN apt-get install -y nodejs
 RUN node -v
 RUN npm -v
 
-RUN cd /jobs && npm install
+WORKDIR /jobs
+RUN npm install
+RUN npm run build
 
 CMD cron && tail -f /var/log/cron.log
