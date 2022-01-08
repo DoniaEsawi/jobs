@@ -4,6 +4,7 @@
 # |  |  |  +------- month (1 - 12)
 # |  |  |  |  +---- day of week (0 - 6) (Sunday=0)
 # |  |  |  |  |
-# *  *  *  *  *  command/to/be/executed
+# *  *  *  *  *  user-name command/to/be/executed
 
+# *  *  * * * root node /jobs/dist/ping/pingLog.js >> /var/log/cron.log 2>&1
 30 18 * * * root node /jobs/dist/twitter/postTweet.js >> /var/log/cron.log 2>&1

@@ -1,10 +1,10 @@
 {
-  "name": "empyre-jobs",
+  "name": "jobs",
   "version": "1.0.0",
-  "description": "scheduled jobs for empyre",
+  "description": "scheduled jobs for alexbrady",
   "main": "index.js",
-  "repository": "https://gitlab.com/empyrehq/empyre-jobs",
-  "author": "Empyre",
+  "repository": "https://github.com/iamalexbrady/jobs",
+  "author": "alexbrady",
   "license": "MIT",
   "private": true,
   "scripts": {
