@@ -6,13 +6,15 @@ See `bin/install.sh` for how to set up a linux machine to run this project.
 See `Dockerfile` for information on what dependencies are available to the scripts running in the container.
 The cron schedule is located in `crontab`
 
-# How to Setup Locally
+## How to Setup Locally
 
-Create the environment variable file from the template: `$ cp .env.dist .env` and fill in with any pertinent environment variables.
+### Create the environment variable file from the template:
 
-Set up the host computer.
+`$ cp .env.dist .env` and fill in with any pertinent environment variables into the newly created `.env`.
 
-## Install docker and docker-compose onto the host computer
+### Set up the host computer.
+
+Install docker and docker-compose onto the host computer
 
 Run `$ ./bin/install.sh` 
 
@@ -22,9 +24,9 @@ When Docker and it's support libraries are installed, `$ docker-compose up -d` w
 
 `$ docker ps` will list Docker processes.
 
-# Development
+## Development
 
-## jobs
+### jobs
 
 Scripts that should be run at a regular interval should be defined within `/src`. Any changes made in the `src` directory are immediately reflected in the Docker container filesystem.
 
@@ -32,7 +34,7 @@ When the container is built for production, the `/src` directory is run through 
 
 The process that should be run regularly must be added to the crontab for regular invocation. Use the `/dist` version of the job (the once that is produced from the `npm run build` step) when listing it in crontab.
 
-## crontab
+### crontab
 
 Altering the crontab file does not automatically register within the Docker container. After altering the crontab file, you must rebuild the image.
 
@@ -52,6 +54,20 @@ Because building takes a non-trivial amount of time, it is suggested that you do
 
 In short, modify crontab last.
 
----
+## Deployment
 
-alexbrady open source
+This repo is deployed on the alexbrady-1 EC2 instance. It is located in the `/opt/apps/` directory.
+
+You must have ssh access to `alexbrady-1` to perform the deploy process.
+
+```
+$ [ssh onto alexbrady-1]
+$ cd /opt/apps/jobs
+$
+$ # Pull the latest version of the code
+$ git pull origin master
+$
+$ # Pring the docker container down, rebuild the image, and take it back up
+$ docker-compose down
+$ docker-compose up --build -d
+```
