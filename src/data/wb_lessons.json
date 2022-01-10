@@ -1,4 +1,4 @@
-export default [
+[
     {
       "slug": "introduction-1",
       "title": "The purpose of these exercises is to train the mind to a different perception …",
@@ -3087,4 +3087,4 @@ export default [
       "url": "https://acim.house/epilogue/",
       "sort_order": 385
     }
-  ];
+  ]

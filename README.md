@@ -10,11 +10,11 @@ The cron schedule is located in `crontab`
 
 ### Create the environment variable file from the template:
 
-`$ cp .env.dist .env` and fill in with any pertinent environment variables into the newly created `.env`.
+`$ cp .env.dist .env` and fill any pertinent environment variables into the newly created `.env`.
 
 ### Set up the host computer.
 
-Install docker and docker-compose onto the host computer
+Install docker and docker-compose onto the host computer.
 
 Run `$ ./bin/install.sh` 
 
@@ -28,11 +28,13 @@ When Docker and it's support libraries are installed, `$ docker-compose up -d` w
 
 ### jobs
 
-Scripts that should be run at a regular interval should be defined within `/src`. Any changes made in the `src` directory are immediately reflected in the Docker container filesystem.
+Define scripts that should be run at a regular interval within `/src`.
+
+It is recommended to use `npm run exec [src/path/to/script.js]` to run your script in development. The `exec` command is defined to transpile the script via `babel-node` before running. 
 
 When the container is built for production, the `/src` directory is run through the JavaScript Babel transpiler and output to the `/dist` directory.
 
-The process that should be run regularly must be added to the crontab for regular invocation. Use the `/dist` version of the job (the once that is produced from the `npm run build` step) when listing it in crontab.
+The process that should be run regularly must be added to the crontab for regular invocation. Use the `/dist` version of the job (the one that is produced from the `npm run build` step) when listing it in crontab.
 
 ### crontab
 

@@ -7,17 +7,21 @@
   "author": "alexbrady",
   "license": "MIT",
   "private": true,
-  "type": "module",
   "scripts": {
-    "build": "npx babel src --out-dir dist"
+    "build": "npx babel src --out-dir dist",
+    "exec": "npx babel-node"
   },
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2017": "^6.24.1",
+    "date-fns": "^2.28.0",
     "dotenv": "^6.1.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "twitter-node-client": "^0.0.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.7",
+    "@babel/core": "^7.16.7",
+    "@babel/node": "^7.16.7",
+    "@babel/preset-env": "^7.16.7"
   }
 }
