@@ -69,6 +69,10 @@ $
 $ # Pull the latest version of the code
 $ git pull origin master
 $
+$ # Add any new environment variables to the .env file
+$ # the nano text editor is installed
+$ nano .env
+$
 $ # Pring the docker container down, rebuild the image, and take it back up
 $ docker-compose down
 $ docker-compose up --build -d

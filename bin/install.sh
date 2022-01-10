@@ -6,7 +6,8 @@ sudo apt-get install \
     ca-certificates \
     curl \
     lsb-release \
-    software-properties-common
+    software-properties-common \
+    nano
 
 # Get Docker
 echo "Checking for Docker"
