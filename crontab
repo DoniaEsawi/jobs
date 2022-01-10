@@ -7,4 +7,4 @@
 # *  *  *  *  *  user-name command/to/be/executed
 
 # *  *  * * * root node /jobs/dist/ping/pingLog.js >> /var/log/cron.log 2>&1
-30 18 * * * root node /jobs/dist/twitter/postTweet.js >> /var/log/cron.log 2>&1
+30 15 * * * root node /jobs/dist/twitter/dailyAcim.js >> /var/log/cron.log 2>&1
