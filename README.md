@@ -10,7 +10,7 @@ The cron schedule is located in `crontab`
 
 ### Create the environment variable file from the template:
 
-`$ cp .env.dist .env` and fill any pertinent environment variables into the newly created `.env`.
+`$ cp .env.dist .env` and fill any pertinent environment variables into the newly created `.env`. See an active contributor for a list of existing environment variables you may need for development.
 
 ### Set up the host computer.
 
@@ -30,7 +30,7 @@ When Docker and it's support libraries are installed, `$ docker-compose up -d` w
 
 Define scripts that should be run at a regular interval within `/src`.
 
-It is recommended to use `npm run exec [src/path/to/script.js]` to run your script in development. The `exec` command is defined to transpile the script via `babel-node` before running. 
+It is recommended to use `npm run exec [src/path/to/script.js` to run your script in development. The `exec` command is defined to transpile the script via `babel-node` before running. 
 
 When the container is built for production, the `/src` directory is run through the JavaScript Babel transpiler and output to the `/dist` directory.
 

@@ -1,22 +1,15 @@
-import { Twitter } from 'twitter-node-client';
+import { TwitterApi } from 'twitter-api-v2';
 import { twitterConfig } from './config.js';
 
 export class TwitterClient {
 
-    constructor(twitter = Twitter, config = twitterConfig) {
-        this.twitter = new twitter(config) || new Twitter(config);
+    constructor(twitter = TwitterApi, config = twitterConfig) {
+        this.twitter = new TwitterApi(config);
     }
 
-    postTweet(tweet) {
-        this.twitter.postTweet({ status: tweet }, this._error, this._success);
-    }
-
-    _success(data) {
-        console.log(data);
-    }
-
-    _error(err) {
-        console.error(`ERROR: ${JSON.stringify(err)}`);
+    // https://github.com/PLhery/node-twitter-api-v2/blob/master/doc/v2.md#Createatweet
+    tweet(statusOrPayload, payload) {
+        return this.twitter.v2.tweet(statusOrPayload, payload);
     }
 }
 
