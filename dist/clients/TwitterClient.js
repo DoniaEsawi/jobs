@@ -11,7 +11,6 @@ var _config = require("./config.js");
 
 class TwitterClient {
   constructor(twitter = _twitterApiV.TwitterApi, config = _config.twitterConfig) {
-    console.log(config);
     this.twitter = new _twitterApiV.TwitterApi(config);
   } // https://github.com/PLhery/node-twitter-api-v2/blob/master/doc/v2.md#Createatweet
 
